@@ -24,7 +24,7 @@ def main():
         elif choice == "S":
             high = set_limit(low)
         elif choice == "H":
-            high_scores()
+            print_high_scores()
         else:
             print("Invalid choice")
         choice = input("(P)lay, (S)et limit, (H)igh scores, (Q)uit: ").upper()
@@ -88,7 +88,7 @@ def is_good_score(number_of_guesses, range_):
     return number_of_guesses <= math.ceil(math.log2(range_))
 
 
-def high_scores():
+def print_high_scores():
     """Prints high scores from a file"""
     scores = []
     with open("scores.txt", encoding="utf-8") as in_file:
