@@ -34,7 +34,7 @@ def main():
 
 
 def save_score(number_of_guesses, low, high):
-    """Save score to scores.txt with range"""
+    """Save score to scores.txt with range."""
     with open(FILENAME, "a", encoding="utf-8") as outfile:
         print(f"{number_of_guesses}|{high - low + 1}", file=outfile)
 
@@ -74,7 +74,7 @@ def set_limit(low):
 
 
 def get_valid_number(prompt):
-    """Gets a valid number from the user"""
+    """Gets a valid number from the user."""
     is_valid = False
     while not is_valid:
         try:
@@ -86,12 +86,12 @@ def get_valid_number(prompt):
 
 
 def is_good_score(number_of_guesses, range_):
-    """Returns if a score is good based on an algorithm"""
+    """Returns if a score is good based on an algorithm."""
     return number_of_guesses <= math.ceil(math.log2(range_))
 
 
 def print_high_scores():
-    """Prints high scores from a file"""
+    """Prints high scores from a file."""
     scores = []
     with open(FILENAME, encoding="utf-8") as in_file:
         for line in in_file:
