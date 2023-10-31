@@ -92,15 +92,20 @@ def is_good_score(number_of_guesses, range_):
 
 def print_high_scores():
     """Prints high scores from a file."""
+    scores = load_scores()
+    scores.sort()
+    for score in scores:
+        marker = "!" if is_good_score(score[0], score[1]) else ""
+        print(f"{score[0]} ({score[1]}) {marker}")
+
+
+def load_scores():
     scores = []
     with open(FILENAME, encoding="utf-8") as in_file:
         for line in in_file:
             line = line.split("|")
             scores.append((int(line[0]), int(line[1])))
-    scores.sort()
-    for score in scores:
-        marker = "!" if is_good_score(score[0], score[1]) else ""
-        print(f"{score[0]} ({score[1]}) {marker}")
+    return scores
 
 
 main()
