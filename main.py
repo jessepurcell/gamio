@@ -51,11 +51,12 @@ def play(low, high):
         else:
             print("Lower")
         guess = int(input(f"Guess a number between {low} and {high}: "))
+
     print(f"You got it in {number_of_guesses} guesses.")
+
     if is_good_score(number_of_guesses, high - low + 1):
         print("Good guessing!")
-    else:
-        pass
+
     choice = input("Do you want to save your score? (y/N) ")
     if choice.upper() == "Y":
         save_score(number_of_guesses, low, high)
