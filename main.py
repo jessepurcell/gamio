@@ -86,9 +86,9 @@ def get_valid_number(prompt):
     return number
 
 
-def is_good_score(number_of_guesses, range):
+def is_good_score(number_of_guesses, range_):
     """Returns if a score is good based on an algorithm."""
-    return number_of_guesses <= math.ceil(math.log2(range))
+    return number_of_guesses <= math.ceil(math.log2(range_))
 
 
 def print_high_scores():
