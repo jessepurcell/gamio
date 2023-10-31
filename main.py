@@ -50,7 +50,7 @@ def play(low, high):
             print("Lower")
         guess = int(input(f"Guess a number between {low} and {high}: "))
     print(f"You got it in {number_of_guesses} guesses.")
-    if good_score(number_of_guesses, high - low + 1) == True:
+    if good_score(number_of_guesses, high - low + 1):
         print("Good guessing!")
     else:
         pass
@@ -60,6 +60,7 @@ def play(low, high):
         return
     else:
         print("Fine then.")
+
 
 def set_limit(low):
     """Set high limit to new value from user input."""
@@ -73,17 +74,18 @@ def set_limit(low):
 
 def get_valid_number(prompt):
     is_valid = False
-    while is_valid == False:
+    while not is_valid:
         try:
             number = int(input(prompt))
             is_valid = True
         except ValueError:
             print("Invalid number")
     return number
+
+
 def good_score(number_of_guesses, range_):
     if number_of_guesses <= math.ceil(math.log2(range_)):
         return True
-
 
 
 def high_scores():
@@ -96,5 +98,6 @@ def high_scores():
     for score in scores:
         marker = "!" if good_score(score[0], score[1]) else ""
         print(f"{score[0]} ({score[1]}) {marker}")
+
 
 main()
