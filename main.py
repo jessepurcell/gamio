@@ -83,8 +83,7 @@ def get_valid_number(prompt):
 
 
 def good_score(number_of_guesses, range_):
-    if number_of_guesses <= math.ceil(math.log2(range_)):
-        return True
+    return number_of_guesses <= math.ceil(math.log2(range_))
 
 
 def high_scores():
